@@ -1,3 +1,3 @@
 # SuperMarketSystem
-A system for supermarket 
-Thanks  @XiaoHao very much
+A system for supermarket \n
+Thanks  @xiaohaoo very much
