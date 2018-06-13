@@ -43,6 +43,8 @@ public class SalesmanDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally{
+			jbdcTool.close(resultSet, preparedStatement, con);
 		}
 		
 	     return false;
@@ -67,6 +69,9 @@ public class SalesmanDao {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}//关闭自动提交
+	    finally{
+	    	jdbcTool.close(null, con);
+	    }
 	    
 	    PreparedStatement preparedStatement=null;
 	    
@@ -155,6 +160,8 @@ public class SalesmanDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally{
+			jdbcTool.close(rSet,pS,con);
 		}
 		return soldId;
 		

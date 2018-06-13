@@ -9,7 +9,7 @@ public class Goods {
 	private String name;
 	private double price;
 	private int num;   //商品的数量
-	private String tips ;
+	
 		
 	
 	
@@ -34,7 +34,7 @@ public class Goods {
 			this.name=name;
 			this.price=price;
 			this.num=num;
-			this.tips=tips;
+			
 	}
 
 	public int getId() {
@@ -68,13 +68,7 @@ public class Goods {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public String getTips() {
-		return tips;
-	}
-	public void setTips() {
-		this.tips=tips;
-	}
-	
+
 	
 	
 }

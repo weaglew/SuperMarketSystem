@@ -146,6 +146,7 @@ public class SalesmanManageDao {
 			 try {
 				 preparedStatement=connection.prepareStatement(sql);
 				 preparedStatement.setString(1, name);
+				 connection.commit();
 				 int rows =preparedStatement.executeUpdate();
 				 if (rows>0) {
 					return true;
@@ -153,6 +154,12 @@ public class SalesmanManageDao {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				try {
+					connection.rollback();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}finally{
 				jdbcTool.close(preparedStatement, connection);
 			}
@@ -179,8 +186,8 @@ public class SalesmanManageDao {
 				resultSet=preparedStatement.executeQuery();
 				while (resultSet.next()) {
 					Salesman salesman =new Salesman();
-					salesman.setName(resultSet.getString(1));
-					salesman.setPasswd(resultSet.getString(2));
+					salesman.setName(resultSet.getString(2));
+					salesman.setPasswd(resultSet.getString(3));
 					list.add(salesman);
 				}
 			} catch (SQLException e) {
@@ -203,7 +210,8 @@ public class SalesmanManageDao {
 			Connection connection=jdbcTool.getConnection();
 			PreparedStatement preparedStatement=null;
 			ResultSet resultSet=null;
-			String sql="select * from SALESMAN where S_NAME like ? ";  //like 表示模糊查询；在表名后加的字符串是表的别名；%表示任意字符 ；_代表单个字符；
+			String sql="select * from SALESMAN where S_NAME like ? ";  
+			//like 表示模糊查询；在表名后加的字符串是表的别名；%表示任意字符 ；_代表单个字符；
 			
 			try {
 				preparedStatement=connection.prepareStatement(sql);

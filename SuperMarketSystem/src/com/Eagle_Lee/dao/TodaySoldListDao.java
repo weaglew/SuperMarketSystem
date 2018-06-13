@@ -41,7 +41,7 @@ import com.Eagle_Lee.domain.Goods;
 			    ps.setString(1, "%"+simpleDateFormat.format(date)+"%");
 			    resultSet=ps.executeQuery();
 			    
-			    
+			    con.commit();
 			    while (resultSet.next()) {
 			    	
 					BuyGoods buyGoods =new BuyGoods();
@@ -61,6 +61,12 @@ import com.Eagle_Lee.domain.Goods;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				try {
+					con.rollback();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}finally{
 				jdbcTool.close(resultSet,ps,con);
 			}

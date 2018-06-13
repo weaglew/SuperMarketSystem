@@ -308,7 +308,7 @@ public class MainPage {
 				System.out.println("商品名称\t\t商品价格\t\t商品数量\t\t备注");
 				/*用foreach循环读出list内的数据结果*/
 				for (Goods goods : list) {
-					System.out.println(goods.getName()+"\t\t"+goods.getPrice()+"\t\t"+goods.getNum()+"\t\t"+goods.getTips());
+					System.out.println(goods.getName()+"\t\t"+goods.getPrice()+"\t\t"+goods.getNum());
 				}
 				
 				break;
@@ -341,33 +341,38 @@ public class MainPage {
 				String way=scanner.next();
 				do {
 					if (way.equals("1")) {
+						System.out.println("商品名称\t\t商品价格\t\t商品数量\t\t备注");
 						//执行按商品数量升序查询
 						ArrayList<Goods> list = goodsDao.numUpSort();
 						for (Goods goods : list) {
-							System.out.println(goods.getName());
-							System.out.println(goods.getPrice());
-							System.out.println(goods.getNum());
-							
+							System.out.print(goods.getName());
+							System.out.print("\t\t"+goods.getPrice());
+							System.out.print("\t\t"+goods.getNum());
+							System.out.println();
 						}
 						break;
 					} else if(way.equals("2")){
+						System.out.println("商品名称\t\t商品价格\t\t商品数量\t\t备注");
 						//执行按商品价格升序查询
 						ArrayList<Goods> list=goodsDao.priceUpSort();
 						for (Goods goods : list) {
-							System.out.println(goods.getName());
-							System.out.println(goods.getPrice());
-							System.out.println(goods.getNum());
+							System.out.print(goods.getName());
+							System.out.print("\t\t"+goods.getPrice());
+							System.out.print("\t\t"+goods.getNum());
+							System.out.println();
 						}
 						break;
 					}else if(way.equals("3")){
+						System.out.println("商品名称\t\t商品价格\t\t商品数量\t\t备注");
 						//执行关键字查询商品
 						System.out.println("请输入关键字：");
 						String name=scanner.next();
 						ArrayList<Goods> list = goodsDao.keywdSort(name);
 						for (Goods goods : list) {
-							System.out.println(goods.getName());
-							System.out.println(goods.getPrice());
-							System.out.println(goods.getNum());
+							System.out.print(goods.getName());
+							System.out.print("\t\t"+goods.getPrice());
+							System.out.print("\t\t"+goods.getNum());
+							System.out.println();
 						}
 						break;
 					}else if (way.equals("0")) {

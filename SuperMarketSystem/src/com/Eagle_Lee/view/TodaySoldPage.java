@@ -27,13 +27,14 @@ public class TodaySoldPage{
 			list=tdListDao.details();
 			//输出查询结果
 			for (BuyGoods buyGoods : list) {
-				if (buyGoods.getGoods().getNum()<10) {
 					System.out.print(buyGoods.getGoods().getName());
 					System.out.print("\t\t"+buyGoods.getGoods().getPrice());
 					System.out.print("\t\t"+buyGoods.getGoods().getNum());
 					System.out.print("\t\t"+buyGoods.getNumber());
-					System.out.println("\t\t"+"*该商品不足10件");
-				}
+					if (buyGoods.getGoods().getNum()<10) {
+						System.out.print("\t\t"+"*该商品不足10件");
+					}
+					System.out.println();
 			}
 			if (list.isEmpty()) {
 				System.out.println("今日没有卖出商品哟~");

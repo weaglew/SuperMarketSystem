@@ -52,5 +52,12 @@ public class Test3Dao {
 	TodaySoldPage td=new TodaySoldPage();
 	td.showTodaySold();
 }
+  @Test
+  public void test6(){
+	  TodaySoldListDao tdListDao =new TodaySoldListDao();
+		ArrayList<BuyGoods> list =new ArrayList<BuyGoods>();
+	  list=tdListDao.details();
+	  System.out.println(list);
+  }
   
 }

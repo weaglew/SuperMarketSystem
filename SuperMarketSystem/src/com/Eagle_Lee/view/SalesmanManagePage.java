@@ -59,7 +59,7 @@ public class SalesmanManagePage {
 				selectSalesman();   //查询售货员
 				break; 
 			default:
-				return;    //能返回到();
+				return;           //能返回到();
 				
 			}
 	   }
@@ -236,7 +236,7 @@ public class SalesmanManagePage {
 			System.out.println("售货员姓名\t\t售货员密码\t\t");
 			/*用foreach循环读出list内的数据结果*/
 			for (Salesman salesman: list) {
-				System.out.println(salesman.getName()+"\t\t"+salesman.getPasswd()+"\t\t");
+				System.out.println(salesman.getName()+"\t\t\t"+salesman.getPasswd()+"\t\t");
 			}
 			break;
 		} while (true);
@@ -255,9 +255,10 @@ public class SalesmanManagePage {
 			System.out.println("输入要查询的售货员姓名关键字");
 			String sc=scanner.next();
 			ArrayList<Salesman> list=salesmanManageDao.keyWdSelect(sc);
+			System.out.println("售货员姓名\t\t售货员密码\t\t");
 			for (Salesman salesman : list) {
-				System.out.println(salesman.getName());
-				System.out.println(salesman.getPasswd());
+				System.out.print(salesman.getName()+"\t\t\t"+salesman.getPasswd());
+				System.out.println();
 			}
 			System.out.println("是否继续(y/n):？");
 			String sur=scanner.next();
